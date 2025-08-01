@@ -6,6 +6,14 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<style>
+			/* Clean Heading Style for specific sections */
+			#skills h2, #two h2, #three h2 {
+				font-size: 1.75em;
+				font-weight: 600;
+				color: #3d4449;
+				border-bottom: none;
+				margin-bottom: 1.5em;
+			}
 			#skills h4 {
 				margin-top: 2em;
 				margin-bottom: 1em;
@@ -19,34 +27,38 @@
 			}
 			.skill-pill {
 				display: inline-block;
-				border-radius: 6px;
 				padding: 6px 14px;
 				font-size: 0.9em;
-				margin: 5px;
 				font-weight: 600;
 				line-height: 1.5;
 				color: #fff;
-				border-bottom: 2px solid rgba(0, 0, 0, 0.15); /* 3D effect */
-				box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle lift */
-				transition: transform 0.1s ease-out;
+				text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25); /* Text pop effect */
+				border-radius: 5px;
+				border: 1px solid rgba(0, 0, 0, 0.2);
+				box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.3), /* Top inner highlight */
+							0 1px 2px rgba(0, 0, 0, 0.15); /* Bottom outer shadow */
+				transition: all 0.1s ease-in-out;
 			}
 			.skill-pill:hover {
-				transform: translateY(-1px); /* Slight lift on hover */
+				opacity: 0.9;
+				box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.3),
+							0 2px 4px rgba(0, 0, 0, 0.2);
+				transform: translateY(-1px);
 			}
-			/* Custom Badge Colors */
-			.pill-python { background-color: #3572A5; }
-			.pill-sql { background-color: #E34C26; }
-			.pill-tsql { background-color: #CC2927; }
-			.pill-azuresql { background-color: #0078D4; }
-			.pill-mysql { background-color: #4479A1; }
-			.pill-arangodb { background-color: #349915; }
-			.pill-azureds { background-color: #5C2D91; }
-			.pill-tableau { background-color: #E97627; }
-			.pill-alteryx { background-color: #0099CB; }
-			.pill-talend { background-color: #744790; }
-			.pill-erstudio { background-color: #6a737d; } /* Neutral Gray */
-			.pill-adf { background-color: #27A7DF; }
-			.pill-aql { background-color: #86d16a; }
+			/* Custom Badge Colors with Gradients */
+			.pill-python { background-image: linear-gradient(to bottom, #4c89c7, #3572A5); }
+			.pill-sql { background-image: linear-gradient(to bottom, #e86354, #E34C26); }
+			.pill-tsql { background-image: linear-gradient(to bottom, #d64a49, #CC2927); }
+			.pill-azuresql { background-image: linear-gradient(to bottom, #2e91de, #0078D4); }
+			.pill-mysql { background-image: linear-gradient(to bottom, #5f93b0, #4479A1); }
+			.pill-arangodb { background-image: linear-gradient(to bottom, #4ebf2b, #349915); }
+			.pill-azureds { background-image: linear-gradient(to bottom, #7e52b5, #5C2D91); }
+			.pill-tableau { background-image: linear-gradient(to bottom, #f08f4c, #E97627); }
+			.pill-alteryx { background-image: linear-gradient(to bottom, #2bb2e0, #0099CB); }
+			.pill-talend { background-image: linear-gradient(to bottom, #916cb0, #744790); }
+			.pill-erstudio { background-image: linear-gradient(to bottom, #868e96, #6a737d); }
+			.pill-adf { background-image: linear-gradient(to bottom, #4bc0e8, #27A7DF); }
+			.pill-aql { background-image: linear-gradient(to bottom, #a0d98a, #86d16a); }
 		</style>
 	</head>
 	<body class="is-preload">
@@ -73,9 +85,7 @@
 					</section>
 
 				<section id="skills">
-						<header class="major">
-							<h2><span class="icon solid fa-wrench"></span> Tech Stack</h2>
-						</header>
+						<h2>Tech Stack</h2>
 						
 						<h4>Databases</h4>
 						<div class="pills-container">
@@ -93,7 +103,7 @@
 							<span class="skill-pill pill-aql">AQL</span>
 						</div>
 
-						<h4>BI, ETL & Analytics Tools</h4>
+						<h4>BI & Analytics</h4>
 						<div class="pills-container">
 							<span class="skill-pill pill-tableau">Tableau</span>
 							<span class="skill-pill pill-alteryx">Alteryx</span>
