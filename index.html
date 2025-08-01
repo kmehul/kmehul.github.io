@@ -38,7 +38,14 @@
 				border-radius: 5px;
 				border: 1px solid rgba(0, 0, 0, 0.15);
 				box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.4);
-				margin: 5px 8px; /* Increased horizontal margin */
+				margin: 5px 8px; 
+			}
+			/* --- NEW CSS FOR PROJECT IMAGE ALIGNMENT --- */
+			.work-item .image img {
+				height: 220px; /* Gives both images a consistent height */
+				width: 100%;
+				object-fit: cover; /* Fills the container, cropping excess */
+				object-position: center; /* Centers the image within the frame */
 			}
 			/* Custom Badge Colors with Gradients */
 			.pill-python { background-image: linear-gradient(to bottom, #4c89c7, #3572A5); }
@@ -60,9 +67,9 @@
 
 		<header id="header">
 				<div class="inner">
-					<a href="#" class="image avatar"><img src="images/avatar.jpg" alt="Kumar Mehul" /></a>
-					<h1><strong>I am Kumar Mehul</strong>, a Data Professional<br />
-					specializing in turning complex data<br />
+					<a href="index.html" class="image avatar"><img src="images/avatar.jpg" alt="Kumar Mehul" /></a>
+					<h1>I am <strong>Kumar Mehul</strong>, a Data Professional<br />
+					who transforms complex data<br />
 					into actionable business insights.</h1>
 				</div>
 			</header>
