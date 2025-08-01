@@ -8,15 +8,21 @@
 		<style>
 			.skill-pill {
 				display: inline-block;
-				background-color: #eee;
-				color: #555;
 				border-radius: 15px;
 				padding: 6px 14px;
 				font-size: 0.9em;
 				margin: 4px;
 				font-weight: 500;
 				line-height: 1.5;
+				color: #fff; /* White text for better contrast */
+				box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for 3D effect */
+				border: 1px solid rgba(0, 0, 0, 0.05); /* Faint border to enhance the edge */
 			}
+			/* Pantone-like color palette */
+			.skill-pill-db { background: linear-gradient(145deg, #64b5f6, #42a5f5); } /* Blue */
+			.skill-pill-lang { background: linear-gradient(145deg, #4db6ac, #26a69a); } /* Teal */
+			.skill-pill-tool { background: linear-gradient(145deg, #ffb74d, #ffa726); } /* Orange */
+
 			#skills h3 {
 				margin-top: 1.5em;
 				margin-bottom: 0.75em;
@@ -53,27 +59,27 @@
 						
 						<h3>Databases</h3>
 						<p>
-							<span class="skill-pill">Azure SQL</span>
-							<span class="skill-pill">MySQL</span>
-							<span class="skill-pill">ArangoDB</span>
-							<span class="skill-pill">Azure Data Studio</span>
+							<span class="skill-pill skill-pill-db">Azure SQL</span>
+							<span class="skill-pill skill-pill-db">MySQL</span>
+							<span class="skill-pill skill-pill-db">ArangoDB</span>
+							<span class="skill-pill skill-pill-db">Azure Data Studio</span>
 						</p>
 
 						<h3>Languages</h3>
 						<p>
-							<span class="skill-pill">Python</span>
-							<span class="skill-pill">SQL</span>
-							<span class="skill-pill">T-SQL</span>
-							<span class="skill-pill">AQL</span>
+							<span class="skill-pill skill-pill-lang">Python</span>
+							<span class="skill-pill skill-pill-lang">SQL</span>
+							<span class="skill-pill skill-pill-lang">T-SQL</span>
+							<span class="skill-pill skill-pill-lang">AQL</span>
 						</p>
 
 						<h3>BI, ETL & Analytics Tools</h3>
 						<p>
-							<span class="skill-pill">Tableau</span>
-							<span class="skill-pill">Alteryx</span>
-							<span class="skill-pill">Talend</span>
-							<span class="skill-pill">E/R Studio</span>
-							<span class="skill-pill">Azure Data Factory</span>
+							<span class="skill-pill skill-pill-tool">Tableau</span>
+							<span class="skill-pill skill-pill-tool">Alteryx</span>
+							<span class="skill-pill skill-pill-tool">Talend</span>
+							<span class="skill-pill skill-pill-tool">E/R Studio</span>
+							<span class="skill-pill skill-pill-tool">Azure Data Factory</span>
 						</p>
 					</section>
 
