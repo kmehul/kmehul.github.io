@@ -6,8 +6,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<style>
-			/* Consistent, Clean Heading Style */
-			section > h2 {
+			/* Clean Heading Style for specific sections */
+			#skills h2, #two h2, #three h2, #four h2 {
 				font-size: 1.75em;
 				font-weight: 600;
 				color: #3d4449;
@@ -38,7 +38,7 @@
 				border-radius: 5px;
 				border: 1px solid rgba(0, 0, 0, 0.15);
 				box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.4);
-				margin: 5px 8px; /* Increased horizontal margin from 5px to 8px */
+				margin: 5px 8px; /* Increased horizontal margin */
 			}
 			/* Custom Badge Colors with Gradients */
 			.pill-python { background-image: linear-gradient(to bottom, #4c89c7, #3572A5); }
@@ -70,7 +70,9 @@
 		<div id="main">
 
 				<section id="one">
-						<h2>Professional Summary</h2>
+						<header class="major">
+							<h2>Professional Summary</h2>
+						</header>
 						<p>A detail-oriented data professional, leveraging a Master’s degree in Information Systems and hands-on project experience to build data-driven solutions. Combines a strong academic foundation with practical experience in analyzing complex datasets to support strategic business objectives. A collaborative problem-solver, eager to help a team solve challenges and make smarter, more informed organizational decisions.</p>
 						<ul class="actions">
 							<li><a href="resume.html" class="button" target="_blank" rel="noopener noreferrer">View Full Resume</a></li>
@@ -106,7 +108,6 @@
 						</div>
 					</section>
 
-
 				<section id="two">
 						<h2>Projects</h2>
 						<div class="row">
@@ -120,11 +121,6 @@
 								<h3>California Food Inspection Analysis</h3>
 								<p>Audited and profiled food inspection data using Alteryx to identify inconsistencies and increase reliability of the final analysis.</p>
 							</article>
-							<article class="col-6 col-12-xsmall work-item">
-								<a href="images/fulls/03.jpg" class="image fit thumb"><img src="images/thumbs/03.jpg" alt="Movie Reservation System Analysis" /></a>
-								<h3>Movie Reservation System Analysis</h3>
-								<p>Engineered a NoSQL database in ArangoDB and developed a Python-based ETL process for data ingestion and preprocessing.</p>
-							</article>
 						</div>
 						<ul class="actions">
 							<li><a href="https://github.com/kmehul" class="button" target="_blank" rel="noopener noreferrer">View All Projects on GitHub</a></li>
@@ -132,6 +128,19 @@
 					</section>
 
 				<section id="three">
+						<h2>Career Snapshot</h2>
+							<div>
+								<h3>Data Analyst</h3>
+								<p><strong>Rebecca Everlene Trust Company</strong> | Oct 2024 - May 2025</p>
+								<h3 style="margin-top: 2em;">Database Engineer Intern</h3>
+								<p><strong>Steel Authority of India Limited</strong> | Jun 2018 – Jul 2018</p>
+							</div>
+						<ul class="actions" style="margin-top: 2.5em;">
+							<li><a href="resume.html" class="button" target="_blank" rel="noopener noreferrer">View Detailed Experience</a></li>
+						</ul>
+					</section>
+
+				<section id="four">
 						<h2>Get In Touch</h2>
 						<p>I'm always interested in new challenges and collaborations. Feel free to connect or reach out via email.</p>
 						<div class="row">
