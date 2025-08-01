@@ -6,27 +6,40 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<style>
+			#skills .container {
+				text-align: center;
+			}
+			#skills h4 {
+				margin-top: 2em;
+				margin-bottom: 1em;
+				font-size: 1.1em;
+				letter-spacing: 0.1em;
+				text-transform: uppercase;
+			}
 			.skill-pill {
 				display: inline-block;
-				border-radius: 15px;
-				padding: 6px 14px;
+				border-radius: 4px;
+				padding: 5px 12px;
 				font-size: 0.9em;
-				margin: 4px;
-				font-weight: 500;
+				margin: 5px;
+				font-weight: 600;
 				line-height: 1.5;
-				color: #fff; /* White text for better contrast */
-				box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for 3D effect */
-				border: 1px solid rgba(0, 0, 0, 0.05); /* Faint border to enhance the edge */
+				color: #fff;
+				border: 1px solid rgba(0, 0, 0, 0.1);
 			}
-			/* Pantone-like color palette */
-			.skill-pill-db { background: linear-gradient(145deg, #64b5f6, #42a5f5); } /* Blue */
-			.skill-pill-lang { background: linear-gradient(145deg, #4db6ac, #26a69a); } /* Teal */
-			.skill-pill-tool { background: linear-gradient(145deg, #ffb74d, #ffa726); } /* Orange */
-
-			#skills h3 {
-				margin-top: 1.5em;
-				margin-bottom: 0.75em;
-			}
+			/* Custom Badge Colors from Screenshot */
+			.pill-python { background-color: #3572A5; }
+			.pill-sql { background-color: #E34C26; }
+			.pill-tsql { background-color: #CC2927; }
+			.pill-azuresql { background-color: #0078D4; }
+			.pill-mysql { background-color: #4479A1; }
+			.pill-arangodb { background-color: #349915; }
+			.pill-azureds { background-color: #5C2D91; }
+			.pill-tableau { background-color: #E97627; }
+			.pill-alteryx { background-color: #0099CB; }
+			.pill-talend { background-color: #744790; }
+			.pill-erstudio { background-color: #6a737d; } /* Neutral Gray */
+			.pill-adf { background-color: #27A7DF; }
 		</style>
 	</head>
 	<body class="is-preload">
@@ -53,34 +66,36 @@
 					</section>
 
 				<section id="skills">
-						<header class="major">
-							<h2>Core Technical Skills</h2>
-						</header>
-						
-						<h3>Databases</h3>
-						<p>
-							<span class="skill-pill skill-pill-db">Azure SQL</span>
-							<span class="skill-pill skill-pill-db">MySQL</span>
-							<span class="skill-pill skill-pill-db">ArangoDB</span>
-							<span class="skill-pill skill-pill-db">Azure Data Studio</span>
-						</p>
+						<div class="container">
+							<header class="major">
+								<h2><span class="icon solid fa-wrench"></span> Tech Stack</h2>
+							</header>
+							
+							<h4>Languages</h4>
+							<p>
+								<span class="skill-pill pill-python">Python</span>
+								<span class="skill-pill pill-sql">SQL</span>
+								<span class="skill-pill pill-tsql">T-SQL</span>
+								<span class="skill-pill pill-erstudio">AQL</span>
+							</p>
 
-						<h3>Languages</h3>
-						<p>
-							<span class="skill-pill skill-pill-lang">Python</span>
-							<span class="skill-pill skill-pill-lang">SQL</span>
-							<span class="skill-pill skill-pill-lang">T-SQL</span>
-							<span class="skill-pill skill-pill-lang">AQL</span>
-						</p>
+							<h4>Databases</h4>
+							<p>
+								<span class="skill-pill pill-azuresql">Azure SQL Databases</span>
+								<span class="skill-pill pill-mysql">MySQL</span>
+								<span class="skill-pill pill-arangodb">ArangoDB</span>
+								<span class="skill-pill pill-azureds">Azure Data Studio</span>
+							</p>
 
-						<h3>BI, ETL & Analytics Tools</h3>
-						<p>
-							<span class="skill-pill skill-pill-tool">Tableau</span>
-							<span class="skill-pill skill-pill-tool">Alteryx</span>
-							<span class="skill-pill skill-pill-tool">Talend</span>
-							<span class="skill-pill skill-pill-tool">E/R Studio</span>
-							<span class="skill-pill skill-pill-tool">Azure Data Factory</span>
-						</p>
+							<h4>BI, ETL & Analytics Tools</h4>
+							<p>
+								<span class="skill-pill pill-tableau">Tableau</span>
+								<span class="skill-pill pill-alteryx">Alteryx</span>
+								<span class="skill-pill pill-talend">Talend</span>
+								<span class="skill-pill pill-erstudio">E/R Studio</span>
+								<span class="skill-pill pill-adf">Azure Data Factory</span>
+							</p>
+						</div>
 					</section>
 
 
