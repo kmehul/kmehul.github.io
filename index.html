@@ -6,8 +6,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<style>
-			/* Clean Heading Style for specific sections */
-			#skills h2, #two h2, #three h2 {
+			/* Consistent, Clean Heading Style */
+			section > h2 {
 				font-size: 1.75em;
 				font-weight: 600;
 				color: #3d4449;
@@ -21,29 +21,22 @@
 				letter-spacing: 0.1em;
 				text-transform: uppercase;
 				text-align: center;
+				color: #555;
 			}
 			#skills .pills-container {
 				text-align: center;
 			}
 			.skill-pill {
 				display: inline-block;
-				padding: 6px 14px;
+				padding: 5px 12px;
 				font-size: 0.9em;
-				font-weight: 600;
+				font-weight: 500;
 				line-height: 1.5;
 				color: #fff;
-				text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25); /* Text pop effect */
+				text-shadow: none;
 				border-radius: 5px;
-				border: 1px solid rgba(0, 0, 0, 0.2);
-				box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.3), /* Top inner highlight */
-							0 1px 2px rgba(0, 0, 0, 0.15); /* Bottom outer shadow */
-				transition: all 0.1s ease-in-out;
-			}
-			.skill-pill:hover {
-				opacity: 0.9;
-				box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.3),
-							0 2px 4px rgba(0, 0, 0, 0.2);
-				transform: translateY(-1px);
+				border: 1px solid rgba(0, 0, 0, 0.15);
+				box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.4);
 			}
 			/* Custom Badge Colors with Gradients */
 			.pill-python { background-image: linear-gradient(to bottom, #4c89c7, #3572A5); }
@@ -75,9 +68,7 @@
 		<div id="main">
 
 				<section id="one">
-						<header class="major">
-							<h2>Professional Summary</h2>
-						</header>
+						<h2>Professional Summary</h2>
 						<p>A detail-oriented data professional, leveraging a Master’s degree in Information Systems and hands-on project experience to build data-driven solutions. Combines a strong academic foundation with practical experience in analyzing complex datasets to support strategic business objectives. A collaborative problem-solver, eager to help a team solve challenges and make smarter, more informed organizational decisions.</p>
 						<ul class="actions">
 							<li><a href="resume.html" class="button" target="_blank" rel="noopener noreferrer">View Full Resume</a></li>
@@ -85,9 +76,7 @@
 					</section>
 
 				<section id="skills">
-						<header class="major">
-							<h2>Tech Stack</h2>
-						</header>
+						<h2>Tech Stack</h2>
 						
 						<h4>Databases</h4>
 						<div class="pills-container">
