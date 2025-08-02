@@ -2591,7 +2591,12 @@ input, select, textarea {
 		-webkit-justify-content: space-between;
 		-ms-justify-content: space-between;
 		justify-content: space-between;
-		background: url("../../images/bg.jpg") no-repeat 35% 65% / cover fixed !important;
+		background:
+ 		/* This value controls the darkness */
+ 		linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+
+ 		/* This is your photo */
+		url("../../images/bg.jpg") no-repeat 25% 65%% / cover scroll !important;
 		color: rgba(255, 255, 255, 0.5);
 		height: 100%;
 		left: 0;
