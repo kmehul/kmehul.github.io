@@ -3224,3 +3224,8 @@ input, select, textarea {
 .poptrox-popup .caption {
     display: none !important;
 }
+
+/* Removes the extra padding at the bottom of the Poptrox lightbox */
+.poptrox-popup {
+    padding-bottom: 0 !important;
+}
