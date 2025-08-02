@@ -3220,7 +3220,7 @@ input, select, textarea {
 
 	}
 
-/* Hides the Poptrox caption area ONLY if it is empty */
-.poptrox-popup .caption:empty {
-    display: none;
+/* Hides all Poptrox lightbox captions */
+.poptrox-popup .caption {
+    display: none !important;
 }
