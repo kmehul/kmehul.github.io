@@ -3219,3 +3219,8 @@ input, select, textarea {
 			}
 
 	}
+
+/* Hides the Poptrox caption area ONLY if it is empty */
+.poptrox-popup .caption:empty {
+    display: none;
+}
