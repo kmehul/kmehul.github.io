@@ -118,7 +118,7 @@
 $('#header').poptrox({
     selector: 'a.image.avatar',
     overlayColor: '#ffffff',
-    overlayOpacity: 0, // Set this to 0
+    overlayOpacity: 0.85, 
     usePopupCaption: false,
     usePopupNav: false,
     popupCloserText: '',
@@ -129,3 +129,4 @@ $('#header').poptrox({
 
 
 })(jQuery);
+
