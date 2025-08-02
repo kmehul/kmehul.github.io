@@ -2600,7 +2600,7 @@ input, select, textarea {
 		color: rgba(255, 255, 255, 0.5);
 		height: 100%;
 		left: 0;
-		padding: 8em 4em;
+		padding: 8em 4em 3em 4em;
 		position: fixed;
 		text-align: right;
 		top: 0;
