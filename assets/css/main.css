@@ -2591,7 +2591,7 @@ input, select, textarea {
 		-webkit-justify-content: space-between;
 		-ms-justify-content: space-between;
 		justify-content: space-between;
-		background: url("../../images/bg.jpg") no-repeat center 65% / cover fixed !important;
+		background: url("../../images/bg.jpg") no-repeat 35% 65% / cover fixed !important;
 		color: rgba(255, 255, 255, 0.5);
 		height: 100%;
 		left: 0;
