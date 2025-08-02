@@ -114,4 +114,18 @@
 
 			});
 
+	// Avatar lightbox.
+$('#header').poptrox({
+    selector: 'a.image.avatar',
+    overlayColor: '#ffffff',
+    overlayOpacity: 0, // Set this to 0
+    usePopupCaption: false,
+    usePopupNav: false,
+    popupCloserText: '',
+    popupLoaderText: '',
+    usePopupEasyClose: true,
+    usePopupDefaultStyling: false
+});
+
+
 })(jQuery);
