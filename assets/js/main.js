@@ -117,7 +117,7 @@
 	// Avatar lightbox.
 $('#header').poptrox({
     selector: 'a.image.avatar',
-    overlayColor: '#2c2c2c',
+    overlayColor: '#101010',
     overlayOpacity: 0.85, 
     usePopupCaption: false,
     usePopupNav: false,
@@ -129,5 +129,6 @@ $('#header').poptrox({
 
 
 })(jQuery);
+
 
 
