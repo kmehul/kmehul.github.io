@@ -203,7 +203,8 @@
 
 		<!-- Action bar for navigation and download -->
 		<div class="action-bar">
-			<a onclick="goBackOrClose();" class="back-link">&larr; Back to Portfolio</a>
+			<!-- This is now a simple link. No more javascript. -->
+			<a href="index.html" class="back-link">&larr; Back to Portfolio</a>
 			<!-- The "download" attribute tells the browser to download the file -->
 			<a href="Kumar_Mehul_Resume.pdf" class="button primary icon solid fa-download" download>Download as PDF</a>
 		</div>
@@ -320,22 +321,7 @@
 
 		</div>
 
-		<!-- Smart script to handle closing the tab -->
-		<script>
-			function goBackOrClose() {
-				// Check if the page was opened from another window/tab.
-				// The 'opener' property will exist and not be null if it was.
-				if (window.opener) {
-					// If so, just close this tab. The browser will return focus
-					// to the tab that opened it (index.html).
-					window.close();
-				} else {
-					// If the user opened this page directly (e.g., from a bookmark),
-					// navigate to the portfolio page as a fallback.
-					window.location.href = 'index.html';
-				}
-			}
-		</script>
+		<!-- The smart script has been removed as it's no longer needed -->
 
 	</body>
 </html>
