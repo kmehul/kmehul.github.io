@@ -2593,7 +2593,7 @@ input, select, textarea {
 		justify-content: space-between;
 		background:
  		/* This value controls the darkness */
- 		linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+ 		linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
 
  		/* This is your photo */
 		url("../../images/bg.jpg") no-repeat 25% 65% / cover scroll !important;
