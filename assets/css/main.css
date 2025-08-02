@@ -76,6 +76,7 @@ input, select, textarea {
 
 	html {
 		box-sizing: border-box;
+		scroll-behavior: smooth; /* <-- ADD THIS LINE */
 	}
 
 	*, *:before, *:after {
@@ -3228,4 +3229,44 @@ input, select, textarea {
 /* Removes the extra padding at the bottom of the Poptrox lightbox */
 .poptrox-popup {
     padding-bottom: 0 !important;
+}
+
+/* ===== NEW: Header Navigation Styles ===== */
+
+#header nav {
+    margin-top: 2em;
+}
+
+#header nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+
+#header nav ul li {
+    padding: 0 1em;
+}
+
+#header nav ul li a {
+    color: rgba(255, 255, 255, 0.6); /* A slightly transparent white */
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: 600;
+    border-bottom: none;
+    transition: color 0.2s ease-in-out;
+}
+
+#header nav ul li a:hover {
+    color: #ffffff; /* Fully white on hover */
+}
+
+/* On smaller screens, make the nav links stack */
+@media screen and (max-width: 736px) {
+    #header nav ul {
+        flex-direction: column;
+    }
+    #header nav ul li {
+        padding: 0.5em 0;
+    }
 }
