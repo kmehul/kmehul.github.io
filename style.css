@@ -170,7 +170,7 @@ section {
   position: relative;
   overflow: hidden;
   border-top: none;
-  background: linear-gradient(135deg, #f0f4ff 0%, #fafafa 50%, #f5f0ff 100%);
+  background: linear-gradient(160deg, #f5f7fc 0%, #fbfbfd 55%, #f7f5fc 100%);
   padding: 200px 0 150px;
   text-align: center;
 }
@@ -191,7 +191,7 @@ section {
   height: 520px;
   left: 6%;
   top: 28%;
-  background: radial-gradient(circle at 40% 40%, rgba(0, 113, 227, 0.28) 0%, rgba(64, 156, 255, 0.12) 45%, rgba(0, 113, 227, 0) 70%);
+  background: radial-gradient(circle at 40% 40%, rgba(0, 113, 227, 0.11) 0%, rgba(64, 156, 255, 0.05) 45%, rgba(0, 113, 227, 0) 70%);
   animation: drift-a 18s ease-in-out infinite alternate;
 }
 
@@ -200,7 +200,7 @@ section {
   height: 560px;
   right: 2%;
   top: 10%;
-  background: radial-gradient(circle at 60% 40%, rgba(172, 125, 255, 0.26) 0%, rgba(255, 132, 190, 0.12) 50%, rgba(172, 125, 255, 0) 72%);
+  background: radial-gradient(circle at 60% 40%, rgba(172, 125, 255, 0.1) 0%, rgba(255, 132, 190, 0.04) 50%, rgba(172, 125, 255, 0) 72%);
   animation: drift-b 22s ease-in-out infinite alternate;
 }
 
@@ -394,7 +394,7 @@ section {
 .skills {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #f5f0ff 0%, #fafafa 45%, #f0f4ff 100%);
+  background: linear-gradient(135deg, #f7f5fc 0%, #fbfbfd 45%, #f5f7fc 100%);
 }
 
 .skills::before,
@@ -411,7 +411,7 @@ section {
   height: 600px;
   left: 12%;
   top: 6%;
-  background: radial-gradient(circle, rgba(0, 113, 227, 0.16) 0%, rgba(0, 113, 227, 0) 70%);
+  background: radial-gradient(circle, rgba(0, 113, 227, 0.07) 0%, rgba(0, 113, 227, 0) 70%);
 }
 
 .skills::after {
@@ -419,7 +419,7 @@ section {
   height: 520px;
   right: 6%;
   bottom: 0;
-  background: radial-gradient(circle, rgba(172, 125, 255, 0.15) 0%, rgba(172, 125, 255, 0) 70%);
+  background: radial-gradient(circle, rgba(172, 125, 255, 0.07) 0%, rgba(172, 125, 255, 0) 70%);
 }
 
 .skills .container {
@@ -496,7 +496,7 @@ section {
 .contact {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #f0f4ff 0%, #fafafa 50%, #f5f0ff 100%);
+  background: linear-gradient(160deg, #f5f7fc 0%, #fbfbfd 55%, #f7f5fc 100%);
   text-align: center;
 }
 
@@ -510,7 +510,7 @@ section {
   transform: translateX(-50%);
   border-radius: 50%;
   filter: blur(90px);
-  background: radial-gradient(circle, rgba(0, 113, 227, 0.18) 0%, rgba(172, 125, 255, 0.13) 50%, rgba(0, 113, 227, 0) 75%);
+  background: radial-gradient(circle, rgba(0, 113, 227, 0.08) 0%, rgba(172, 125, 255, 0.06) 50%, rgba(0, 113, 227, 0) 75%);
   pointer-events: none;
 }
 
