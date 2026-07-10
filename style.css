@@ -44,8 +44,7 @@ body {
 
 /* Faint specular catch on the lit edges - kept just above perception */
 .btn::after,
-.skill-badge::after,
-.btn-send::after {
+.skill-badge::after {
   content: "";
   position: absolute;
   inset: -1px;
@@ -481,29 +480,8 @@ section {
    -------------------------------------------------------------------------- */
 
 .contact {
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(160deg, #f5f7fc 0%, #fbfbfd 55%, #f7f5fc 100%);
+  background: #f5f5f7;
   text-align: center;
-}
-
-.contact::before {
-  content: "";
-  position: absolute;
-  width: 680px;
-  height: 680px;
-  left: 50%;
-  top: 16%;
-  transform: translateX(-50%);
-  border-radius: 50%;
-  filter: blur(90px);
-  background: radial-gradient(circle, rgba(0, 113, 227, 0.08) 0%, rgba(172, 125, 255, 0.06) 50%, rgba(0, 113, 227, 0) 75%);
-  pointer-events: none;
-}
-
-.contact .container {
-  position: relative;
-  z-index: 1;
 }
 
 .contact-sub {
@@ -526,18 +504,15 @@ section {
 .contact-form input,
 .contact-form textarea {
   width: 100%;
-  padding: 15px 20px;
+  padding: 15px 18px;
   font-family: inherit;
   font-size: 17px;
   letter-spacing: -0.022em;
   color: #1d1d1f;
   outline: none;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.42);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  box-shadow:
-    0 5px 18px rgba(31, 38, 66, 0.05),
-    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid #d2d2d7;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -548,16 +523,12 @@ section {
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-  border-color: rgba(0, 113, 227, 0.7);
-  box-shadow:
-    0 0 0 4px rgba(0, 113, 227, 0.18),
-    0 5px 18px rgba(31, 38, 66, 0.05),
-    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  border-color: #0071e3;
+  box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.22);
 }
 
 .contact-form textarea {
   height: 190px;
-  border-radius: 20px;
   resize: none;
   overflow-y: auto;
 }
@@ -567,21 +538,18 @@ section {
   margin-top: 10px;
   padding: 13px 48px;
   border-radius: 980px;
+  border: none;
   font-size: 17px;
   font-weight: 500;
   font-family: inherit;
-  background: rgba(0, 113, 227, 0.16);
-  color: #0071e3;
+  background: #0071e3;
+  color: #ffffff;
   cursor: pointer;
-  transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.3, 1), background 0.3s ease, box-shadow 0.3s ease;
+  transition: background 0.2s ease;
 }
 
 .btn-send:hover {
-  background: rgba(0, 113, 227, 0.24);
-  transform: scale(1.02);
-  box-shadow:
-    0 10px 30px rgba(0, 113, 227, 0.16),
-    inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  background: #0077ed;
 }
 
 .btn-send:disabled {
