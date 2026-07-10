@@ -32,19 +32,17 @@ body {
 
 .glass {
   position: relative;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.62) 0%, rgba(255, 255, 255, 0.34) 100%);
-  backdrop-filter: blur(26px) saturate(200%);
-  -webkit-backdrop-filter: blur(26px) saturate(200%);
-  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(14px) saturate(170%);
+  -webkit-backdrop-filter: blur(14px) saturate(170%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 18px;
   box-shadow:
-    0 10px 34px rgba(31, 38, 66, 0.09),
-    0 2px 8px rgba(31, 38, 66, 0.05),
-    inset 0 1.5px 1px rgba(255, 255, 255, 0.95),
-    inset 0 -1px 1px rgba(0, 0, 0, 0.05);
+    0 6px 20px rgba(31, 38, 66, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
 }
 
-/* Gradient specular ring - light catches the top-left and bottom-right edge */
+/* Faint specular catch on the lit edges - kept just above perception */
 .btn::after,
 .skill-badge::after,
 .btn-send::after {
@@ -54,30 +52,16 @@ body {
   border-radius: inherit;
   padding: 1px;
   background: linear-gradient(
-    150deg,
-    rgba(255, 255, 255, 0.95) 0%,
-    rgba(255, 255, 255, 0.2) 35%,
-    rgba(255, 255, 255, 0.12) 65%,
-    rgba(255, 255, 255, 0.75) 100%
+    165deg,
+    rgba(255, 255, 255, 0.55) 0%,
+    rgba(255, 255, 255, 0.05) 40%,
+    rgba(255, 255, 255, 0.02) 70%,
+    rgba(255, 255, 255, 0.3) 100%
   );
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   mask-composite: exclude;
-  pointer-events: none;
-}
-
-/* Glossy sheen across the upper half */
-.btn::before,
-.skill-badge::before,
-.btn-send::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  border-radius: inherit;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0) 55%);
-  opacity: 0.6;
   pointer-events: none;
 }
 
@@ -95,6 +79,11 @@ body {
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  transition: transform 0.35s ease;
+}
+
+.nav.nav-hidden {
+  transform: translateY(-100%);
 }
 
 .nav-inner {
@@ -275,13 +264,11 @@ section {
 }
 
 .btn:hover {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.56) 100%);
-  transform: scale(1.03);
+  background: rgba(255, 255, 255, 0.5);
+  transform: scale(1.02);
   box-shadow:
-    0 14px 40px rgba(31, 38, 66, 0.13),
-    0 3px 10px rgba(31, 38, 66, 0.06),
-    inset 0 1.5px 1px rgba(255, 255, 255, 0.98),
-    inset 0 -1px 1px rgba(0, 0, 0, 0.05);
+    0 10px 30px rgba(31, 38, 66, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55);
 }
 
 /* --------------------------------------------------------------------------
@@ -307,7 +294,7 @@ section {
 .project-list {
   display: flex;
   flex-direction: column;
-  gap: 48px;
+  gap: 40px;
   margin-top: 48px;
 }
 
@@ -335,14 +322,14 @@ section {
 }
 
 .project-body {
-  padding: 40px 44px 44px;
+  padding: 30px 38px 34px;
 }
 
 .project-body h3 {
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 600;
   letter-spacing: 0.007em;
-  line-height: 1.14;
+  line-height: 1.16;
 }
 
 .project-meta {
@@ -361,7 +348,7 @@ section {
 }
 
 .project-body p.description {
-  margin-top: 18px;
+  margin-top: 16px;
   font-size: 17px;
   line-height: 1.47;
   letter-spacing: -0.022em;
@@ -428,9 +415,9 @@ section {
 }
 
 .skills-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px 68px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
   margin-top: 48px;
 }
 
@@ -546,12 +533,11 @@ section {
   color: #1d1d1f;
   outline: none;
   border-radius: 16px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.74) 0%, rgba(255, 255, 255, 0.5) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.42);
+  border: 1px solid rgba(255, 255, 255, 0.5);
   box-shadow:
-    0 6px 24px rgba(31, 38, 66, 0.06),
-    inset 0 1.5px 1px rgba(255, 255, 255, 0.95),
-    inset 0 -1px 1px rgba(0, 0, 0, 0.04);
+    0 5px 18px rgba(31, 38, 66, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -565,14 +551,15 @@ section {
   border-color: rgba(0, 113, 227, 0.7);
   box-shadow:
     0 0 0 4px rgba(0, 113, 227, 0.18),
-    0 6px 24px rgba(31, 38, 66, 0.06),
-    inset 0 1.5px 1px rgba(255, 255, 255, 0.95);
+    0 5px 18px rgba(31, 38, 66, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
 .contact-form textarea {
-  min-height: 160px;
+  height: 190px;
   border-radius: 20px;
-  resize: vertical;
+  resize: none;
+  overflow-y: auto;
 }
 
 .btn-send {
@@ -583,19 +570,40 @@ section {
   font-size: 17px;
   font-weight: 500;
   font-family: inherit;
-  background: linear-gradient(180deg, rgba(0, 113, 227, 0.22) 0%, rgba(0, 113, 227, 0.12) 100%);
+  background: rgba(0, 113, 227, 0.16);
   color: #0071e3;
   cursor: pointer;
   transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.3, 1), background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .btn-send:hover {
-  background: linear-gradient(180deg, rgba(0, 113, 227, 0.3) 0%, rgba(0, 113, 227, 0.18) 100%);
-  transform: scale(1.03);
+  background: rgba(0, 113, 227, 0.24);
+  transform: scale(1.02);
   box-shadow:
-    0 14px 40px rgba(0, 113, 227, 0.22),
-    inset 0 1.5px 1px rgba(255, 255, 255, 0.95),
-    inset 0 -1px 1px rgba(0, 0, 0, 0.05);
+    0 10px 30px rgba(0, 113, 227, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+.btn-send:disabled {
+  opacity: 0.6;
+  cursor: default;
+  transform: none;
+}
+
+.form-status {
+  min-height: 1.4em;
+  margin-top: 4px;
+  font-size: 15px;
+  text-align: center;
+  color: #6e6e73;
+}
+
+.form-status.success {
+  color: #248a3d;
+}
+
+.form-status.error {
+  color: #d70015;
 }
 
 /* --------------------------------------------------------------------------
@@ -656,6 +664,21 @@ section {
     font-size: 17px;
   }
 
+  .hero-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    max-width: 340px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+    padding: 13px 0;
+  }
+
   .section-title {
     font-size: 34px;
   }
@@ -665,15 +688,19 @@ section {
   }
 
   .project-body {
-    padding: 28px 26px 32px;
+    padding: 24px 22px 28px;
   }
 
   .project-body h3 {
-    font-size: 23px;
+    font-size: 21px;
   }
 
   .skills-grid {
-    grid-template-columns: 1fr;
-    gap: 44px;
+    gap: 40px;
+  }
+
+  .skill-badge {
+    padding: 9px 16px;
+    font-size: 13px;
   }
 }
