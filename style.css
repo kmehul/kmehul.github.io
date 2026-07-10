@@ -24,47 +24,6 @@ body {
 }
 
 /* --------------------------------------------------------------------------
-   Liquid glass
-   Layered treatment: blurred translucent fill, gradient specular ring,
-   top sheen, soft drop + inset shadows. The ring and sheen live on
-   pseudo-elements, so form fields fake them with borders and insets.
-   -------------------------------------------------------------------------- */
-
-.glass {
-  position: relative;
-  background: rgba(255, 255, 255, 0.28);
-  backdrop-filter: blur(14px) saturate(170%);
-  -webkit-backdrop-filter: blur(14px) saturate(170%);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 18px;
-  box-shadow:
-    0 6px 20px rgba(31, 38, 66, 0.07),
-    inset 0 1px 0 rgba(255, 255, 255, 0.45);
-}
-
-/* Faint specular catch on the lit edges - kept just above perception */
-.btn::after,
-.skill-badge::after {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(
-    165deg,
-    rgba(255, 255, 255, 0.55) 0%,
-    rgba(255, 255, 255, 0.05) 40%,
-    rgba(255, 255, 255, 0.02) 70%,
-    rgba(255, 255, 255, 0.3) 100%
-  );
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  mask-composite: exclude;
-  pointer-events: none;
-}
-
-/* --------------------------------------------------------------------------
    Navigation
    -------------------------------------------------------------------------- */
 
@@ -155,63 +114,10 @@ section {
    -------------------------------------------------------------------------- */
 
 .hero {
-  position: relative;
-  overflow: hidden;
   border-top: none;
-  background: linear-gradient(160deg, #f5f7fc 0%, #fbfbfd 55%, #f7f5fc 100%);
+  background: #fbfbfd;
   padding: 200px 0 150px;
   text-align: center;
-}
-
-/* Drifting color fields behind the glass so the blur refracts something */
-.hero::before,
-.hero::after {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(70px);
-  pointer-events: none;
-  will-change: transform;
-}
-
-.hero::before {
-  width: 520px;
-  height: 520px;
-  left: 6%;
-  top: 28%;
-  background: radial-gradient(circle at 40% 40%, rgba(0, 113, 227, 0.11) 0%, rgba(64, 156, 255, 0.05) 45%, rgba(0, 113, 227, 0) 70%);
-  animation: drift-a 18s ease-in-out infinite alternate;
-}
-
-.hero::after {
-  width: 560px;
-  height: 560px;
-  right: 2%;
-  top: 10%;
-  background: radial-gradient(circle at 60% 40%, rgba(172, 125, 255, 0.1) 0%, rgba(255, 132, 190, 0.04) 50%, rgba(172, 125, 255, 0) 72%);
-  animation: drift-b 22s ease-in-out infinite alternate;
-}
-
-@keyframes drift-a {
-  from { transform: translate(0, 0) scale(1); }
-  to   { transform: translate(70px, -50px) scale(1.18); }
-}
-
-@keyframes drift-b {
-  from { transform: translate(0, 0) scale(1.1); }
-  to   { transform: translate(-80px, 40px) scale(0.95); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero::before,
-  .hero::after {
-    animation: none;
-  }
-}
-
-.hero-inner {
-  position: relative;
-  z-index: 1;
 }
 
 .hero h1 {
@@ -250,24 +156,33 @@ section {
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 13px 28px;
+  justify-content: center;
+  padding: 12px 24px;
   border-radius: 980px;
-  font-size: 16px;
-  font-weight: 500;
-  letter-spacing: -0.01em;
-  color: #1d1d1f;
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: -0.022em;
   text-decoration: none;
   cursor: pointer;
-  transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.3, 1), background 0.3s ease, box-shadow 0.3s ease;
+  transition: background 0.2s ease;
 }
 
-.btn:hover {
-  background: rgba(255, 255, 255, 0.5);
-  transform: scale(1.02);
-  box-shadow:
-    0 10px 30px rgba(31, 38, 66, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.55);
+.btn-primary {
+  background: #0071e3;
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background: #0077ed;
+}
+
+.btn-secondary {
+  background: #e8e8ed;
+  color: #0071e3;
+}
+
+.btn-secondary:hover {
+  background: #dfdfe4;
 }
 
 /* --------------------------------------------------------------------------
@@ -378,39 +293,7 @@ section {
    -------------------------------------------------------------------------- */
 
 .skills {
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(135deg, #f7f5fc 0%, #fbfbfd 45%, #f5f7fc 100%);
-}
-
-.skills::before,
-.skills::after {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
-  pointer-events: none;
-}
-
-.skills::before {
-  width: 600px;
-  height: 600px;
-  left: 12%;
-  top: 6%;
-  background: radial-gradient(circle, rgba(0, 113, 227, 0.07) 0%, rgba(0, 113, 227, 0) 70%);
-}
-
-.skills::after {
-  width: 520px;
-  height: 520px;
-  right: 6%;
-  bottom: 0;
-  background: radial-gradient(circle, rgba(172, 125, 255, 0.07) 0%, rgba(172, 125, 255, 0) 70%);
-}
-
-.skills .container {
-  position: relative;
-  z-index: 1;
+  background: #ffffff;
 }
 
 .skills-grid {
@@ -440,6 +323,7 @@ section {
   border-radius: 980px;
   font-size: 14px;
   font-weight: 500;
+  background: #e8e8ed;
   color: #1d1d1f;
 }
 
