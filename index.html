@@ -449,6 +449,7 @@
             name: name,
             email: email,
             message: message,
+            _replyto: email,
             _subject: 'Portfolio contact from ' + name,
             _template: 'table'
           })
@@ -463,11 +464,11 @@
             throw new Error(data.message || 'Send failed');
           }
         }).catch(function () {
-          status.textContent = 'Could not send right now - opening your email app instead.';
-          status.classList.add('error');
           var subject = encodeURIComponent('Portfolio contact from ' + name);
           var body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message);
-          window.location.href = 'mailto:kumar-mehul@outlook.com?subject=' + subject + '&body=' + body;
+          var href = 'mailto:kumar-mehul@outlook.com?subject=' + subject + '&body=' + body;
+          status.innerHTML = 'Could not send right now - <a href="' + href + '">email me directly</a> instead.';
+          status.classList.add('error');
         }).finally(function () {
           button.disabled = false;
           button.textContent = 'Send';
