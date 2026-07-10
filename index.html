@@ -13,7 +13,11 @@
   <nav class="nav" id="nav">
     <div class="nav-inner">
       <a class="nav-name" href="#top">Kumar Mehul</a>
-      <ul class="nav-links">
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+      <ul class="nav-links" id="nav-menu">
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#skills">Skills</a></li>
@@ -43,19 +47,19 @@
     <!-- ================= About ================= -->
     <section class="about" id="about">
       <div class="container">
-        <h2 class="section-title">About</h2>
-        <p>I am a Data Analyst with an MS in Information Systems from Northeastern University, Boston, and hands-on professional experience in data operations and reporting. My work covers the full analysis cycle - from sourcing and cleaning raw data to building the reporting layer that teams use to make decisions. I work primarily in SQL, Python, and Tableau, with additional experience in Power BI, Alteryx, and Talend across ETL and dimensional modeling workflows.</p>
+        <h2 class="section-title reveal">About</h2>
+        <p class="reveal">I am a Data Analyst with an MS in Information Systems from Northeastern University, Boston, and hands-on professional experience in data operations and reporting. My work covers the full analysis cycle - from sourcing and cleaning raw data to building the reporting layer that teams use to make decisions. I work primarily in SQL, Python, and Tableau, with additional experience in Power BI, Alteryx, and Talend across ETL and dimensional modeling workflows.</p>
       </div>
     </section>
 
     <!-- ================= Projects ================= -->
     <section class="projects" id="projects">
       <div class="container">
-        <h2 class="section-title">Projects</h2>
+        <h2 class="section-title reveal">Projects</h2>
         <div class="project-list">
 
           <!-- Project 1: CitiBike -->
-          <article class="project-card">
+          <article class="project-card reveal">
             <div class="project-figure">
               <svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <defs>
@@ -115,7 +119,7 @@
             <div class="project-body">
               <h3>CitiBike Jersey City: Last-Mile Mobility Analysis</h3>
               <div class="project-meta">
-                <div class="stack">PostgreSQL &middot; Python (pandas, matplotlib, seaborn) &middot; Tableau</div>
+                <div class="stack"><span>PostgreSQL</span> &middot; <span>Python (pandas, matplotlib, seaborn)</span> &middot; <span>Tableau</span></div>
                 <div class="period">Jun 2026 - Jul 2026</div>
               </div>
               <p class="description">94,689 CitiBike trips across 108 stations in Jersey City and Hoboken. The analysis separates commuter from leisure demand using member vs. casual ride patterns, identifies 10 stations with daily bike imbalance up to 17.8%, and translates the network-wide rebalancing problem into two city-separated intervention routes. Built with an AI-assisted workflow - AI used as an analytical partner under active scrutiny across SQL and Python.</p>
@@ -127,7 +131,7 @@
           </article>
 
           <!-- Project 2: IMDB -->
-          <article class="project-card">
+          <article class="project-card reveal">
             <div class="project-figure">
               <svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <rect width="720" height="300" fill="#f2f4f8"/>
@@ -215,7 +219,7 @@
             <div class="project-body">
               <h3>IMDB Movie Data Analysis</h3>
               <div class="project-meta">
-                <div class="stack">Alteryx &middot; Talend &middot; Tableau &middot; Azure SQL &middot; MySQL &middot; E/R Studio</div>
+                <div class="stack"><span>Alteryx</span> &middot; <span>Talend</span> &middot; <span>Tableau</span> &middot; <span>Azure SQL</span> &middot; <span>MySQL</span> &middot; <span>E/R Studio</span></div>
                 <div class="period">Dec 2023 - Apr 2024</div>
               </div>
               <p class="description">Consolidated 90 million records from 17 heterogeneous source files into a unified Azure SQL dataset. Designed a 12-table dimensional model in E/R Studio, profiled and validated all source data in Alteryx, and built Tableau dashboards covering ratings distribution, revenue trends, genre popularity, and multi-region release performance.</p>
@@ -226,7 +230,7 @@
           </article>
 
           <!-- Project 3: Food Inspection -->
-          <article class="project-card">
+          <article class="project-card reveal">
             <div class="project-figure">
               <svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <defs>
@@ -303,7 +307,7 @@
             <div class="project-body">
               <h3>California Food Inspection Analysis</h3>
               <div class="project-meta">
-                <div class="stack">Alteryx &middot; Talend &middot; Tableau &middot; Azure SQL &middot; MySQL &middot; E/R Studio</div>
+                <div class="stack"><span>Alteryx</span> &middot; <span>Talend</span> &middot; <span>Tableau</span> &middot; <span>Azure SQL</span> &middot; <span>MySQL</span> &middot; <span>E/R Studio</span></div>
                 <div class="period">Oct 2023 - Nov 2023</div>
               </div>
               <p class="description">Built a compliance analytics system for Sonoma County food facility inspections. Designed a 5-table star schema, profiled and cleansed source data in Alteryx, loaded into Azure SQL via Talend, and built Tableau dashboards covering inspection trends, pass/fail analysis, violation category breakdowns, and geographic risk distribution.</p>
@@ -320,19 +324,19 @@
     <!-- ================= Skills ================= -->
     <section class="skills" id="skills">
       <div class="container">
-        <h2 class="section-title">Skills</h2>
+        <h2 class="section-title reveal">Skills</h2>
         <div class="skills-grid">
 
-          <div class="skill-category">
+          <div class="skill-category reveal">
             <h3>Analytics &amp; Visualization</h3>
             <div class="skill-badges">
               <span class="skill-badge">Tableau</span>
               <span class="skill-badge">Power BI</span>
             </div>
-            <p class="skill-subs">Dashboards &middot; KPIs &middot; Drill-downs &middot; Ad-hoc analysis &middot; Data storytelling</p>
+            <p class="skill-subs"><span>Dashboards</span> &middot; <span>KPIs</span> &middot; <span>Drill-downs</span> &middot; <span>Ad-hoc analysis</span> &middot; <span>Data storytelling</span></p>
           </div>
 
-          <div class="skill-category">
+          <div class="skill-category reveal">
             <h3>Languages &amp; Querying</h3>
             <div class="skill-badges">
               <span class="skill-badge">SQL</span>
@@ -341,19 +345,19 @@
               <span class="skill-badge">matplotlib</span>
               <span class="skill-badge">seaborn</span>
             </div>
-            <p class="skill-subs">Data manipulation &middot; Cleaning &middot; Querying &middot; Analysis</p>
+            <p class="skill-subs"><span>Data manipulation</span> &middot; <span>Cleaning</span> &middot; <span>Querying</span> &middot; <span>Analysis</span></p>
           </div>
 
-          <div class="skill-category">
+          <div class="skill-category reveal">
             <h3>Data Preparation</h3>
             <div class="skill-badges">
               <span class="skill-badge">Alteryx</span>
               <span class="skill-badge">Talend</span>
             </div>
-            <p class="skill-subs">ETL &middot; Data profiling &middot; Cleansing &middot; Standardization &middot; Quality assurance</p>
+            <p class="skill-subs"><span>ETL</span> &middot; <span>Data profiling</span> &middot; <span>Cleansing</span> &middot; <span>Standardization</span> &middot; <span>Quality assurance</span></p>
           </div>
 
-          <div class="skill-category">
+          <div class="skill-category reveal">
             <h3>Databases &amp; Modeling</h3>
             <div class="skill-badges">
               <span class="skill-badge">PostgreSQL</span>
@@ -361,7 +365,7 @@
               <span class="skill-badge">MySQL</span>
               <span class="skill-badge">E/R Studio</span>
             </div>
-            <p class="skill-subs">Relational databases &middot; Dimensional modeling &middot; Data warehousing &middot; Data modeling</p>
+            <p class="skill-subs"><span>Relational databases</span> &middot; <span>Dimensional modeling</span> &middot; <span>Data warehousing</span> &middot; <span>Data modeling</span></p>
           </div>
 
         </div>
@@ -371,15 +375,15 @@
     <!-- ================= Education ================= -->
     <section class="education" id="education">
       <div class="container">
-        <h2 class="section-title">Education</h2>
+        <h2 class="section-title reveal">Education</h2>
         <div class="education-list">
-          <div class="education-item">
+          <div class="education-item reveal">
             <h3>Master of Science in Information Systems</h3>
-            <p>Northeastern University, Boston, USA &nbsp;|&nbsp; GPA: 3.52/4.0 &nbsp;|&nbsp; Sep 2022 - May 2024</p>
+            <p><span class="edu-seg">Northeastern University, Boston, USA</span><span class="edu-sep"> | </span><span class="edu-seg">GPA: 3.52/4.0</span><span class="edu-sep"> | </span><span class="edu-seg">Sep 2022 - May 2024</span></p>
           </div>
-          <div class="education-item">
+          <div class="education-item reveal">
             <h3>Bachelor of Technology in Information Technology</h3>
-            <p>SRM Institute of Science and Technology, Chennai, India &nbsp;|&nbsp; 77.38% &nbsp;|&nbsp; Jul 2016 - May 2020</p>
+            <p><span class="edu-seg">SRM Institute of Science and Technology, Chennai, India</span><span class="edu-sep"> | </span><span class="edu-seg">77.38%</span><span class="edu-sep"> | </span><span class="edu-seg">Jul 2016 - May 2020</span></p>
           </div>
         </div>
       </div>
@@ -388,9 +392,9 @@
     <!-- ================= Contact ================= -->
     <section class="contact" id="contact">
       <div class="container">
-        <h2 class="section-title">Get in Touch</h2>
-        <p class="contact-sub">Hiring an analyst, or sitting on data that needs answers? Tell me about it. I read every message.</p>
-        <form class="contact-form" id="contact-form" action="https://formsubmit.co/8a308a4cc2844a6b607ba69502c56020" method="POST">
+        <h2 class="section-title reveal">Get in Touch</h2>
+        <p class="contact-sub reveal"><span>Hiring an analyst, or sitting on data that needs answers?</span> <span>Tell me about it.<br class="br-mobile"> I read every message.</span></p>
+        <form class="contact-form reveal" id="contact-form" action="https://formsubmit.co/8a308a4cc2844a6b607ba69502c56020" method="POST">
           <input type="hidden" name="_subject" value="New message from kmehul.github.io">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_next" value="https://kmehul.github.io/#contact">
@@ -461,29 +465,49 @@
         });
       });
 
-      // Nav: on small screens, hide while scrolling down, reveal on scroll up or stop
+      // Mobile nav: persistent bar with a hamburger that opens a frosted menu
       var nav = document.getElementById('nav');
-      var lastY = window.scrollY;
-      var revealTimer;
-      var smallScreen = window.matchMedia('(max-width: 734px)');
+      var toggle = document.getElementById('nav-toggle');
 
-      window.addEventListener('scroll', function () {
-        if (!smallScreen.matches) {
-          nav.classList.remove('nav-hidden');
-          return;
+      function closeMenu() {
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Open menu');
+        document.body.classList.remove('menu-open');
+      }
+
+      toggle.addEventListener('click', function () {
+        var open = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        document.body.classList.toggle('menu-open', open);
+      });
+
+      var navAnchors = document.querySelectorAll('.nav-links a');
+      for (var i = 0; i < navAnchors.length; i++) {
+        navAnchors[i].addEventListener('click', closeMenu);
+      }
+
+      // Scroll reveal: content rises in as it enters the viewport
+      document.documentElement.classList.add('js');
+      var revealEls = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in-view');
+              io.unobserve(entry.target);
+            }
+          });
+        }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+        for (var j = 0; j < revealEls.length; j++) {
+          io.observe(revealEls[j]);
         }
-        var y = window.scrollY;
-        if (y > lastY && y > 90) {
-          nav.classList.add('nav-hidden');
-        } else {
-          nav.classList.remove('nav-hidden');
+      } else {
+        for (var k = 0; k < revealEls.length; k++) {
+          revealEls[k].classList.add('in-view');
         }
-        lastY = y;
-        clearTimeout(revealTimer);
-        revealTimer = setTimeout(function () {
-          nav.classList.remove('nav-hidden');
-        }, 250);
-      }, { passive: true });
+      }
     })();
   </script>
 
