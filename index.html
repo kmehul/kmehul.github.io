@@ -487,11 +487,14 @@
       document.documentElement.classList.add('js');
       var revealEls = document.querySelectorAll('.reveal');
       if ('IntersectionObserver' in window) {
+        // Symmetric: any exit re-arms the element, so reveals replay on
+        // every pass through the viewport, scrolling down or up
         var io = new IntersectionObserver(function (entries) {
           entries.forEach(function (entry) {
             if (entry.isIntersecting) {
               entry.target.classList.add('in-view');
-              io.unobserve(entry.target);
+            } else {
+              entry.target.classList.remove('in-view');
             }
           });
         }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
@@ -519,13 +522,17 @@
         document.documentElement.classList.remove('no-anim');
       }
 
-      var navAnchors = document.querySelectorAll('.nav-links a');
+      // Nav links scroll without writing a hash into the URL, so a later
+      // reload always starts at the top instead of the last-visited section
+      var navAnchors = document.querySelectorAll('.nav a[href^="#"]');
       for (var i = 0; i < navAnchors.length; i++) {
-        navAnchors[i].addEventListener('click', function () {
+        navAnchors[i].addEventListener('click', function (e) {
+          e.preventDefault();
           closeMenu();
           var target = document.querySelector(this.getAttribute('href'));
           if (target) {
             completeRevealsAbove(target.getBoundingClientRect().top + window.scrollY + window.innerHeight);
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }
         });
       }
