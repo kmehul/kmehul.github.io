@@ -310,6 +310,7 @@ section {
 .project-meta .stack {
   font-weight: 500;
   color: #1d1d1f;
+  text-wrap: balance;
 }
 
 .project-meta .stack span {
