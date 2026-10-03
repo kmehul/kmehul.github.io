@@ -1,0 +1,295 @@
+/* ==========================================================================
+   Shared structure and mechanics. Each design file sets the tokens below
+   and owns every visual decision (type, colour, borders, art).
+   ========================================================================== */
+
+:root {
+  --max: 1080px;
+  --gutter: 24px;
+  --nav-h: 64px;
+  --section-pad: 120px;
+  --bg: #fff;
+  --fg: #111;
+  --muted: #666;
+  --accent: #0070f3;
+  --line: #e5e5e5;
+  --surface: #fafafa;
+  --radius: 8px;
+  --font-sans: system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-sans);
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--fg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+img, svg { display: block; max-width: 100%; }
+img { height: auto; }
+a { color: inherit; }
+ul, ol { list-style: none; }
+button, input, textarea { font: inherit; color: inherit; }
+h1, h2, h3, h4 { text-wrap: balance; }
+p { text-wrap: pretty; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+.wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+.t1, .t2 { display: inline; }
+section[id], article[id] { scroll-margin-top: var(--nav-h); }
+
+/* --- hover arrow (Stripe's chevron that grows a shaft on hover) --- */
+.arr { display: inline-block; width: 10px; height: 10px; margin-left: 6px; vertical-align: 0; overflow: visible; }
+.arr path { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.arr-line { opacity: 0; transition: opacity .15s ease; }
+.arr-tip { transition: transform .15s ease; }
+a:hover .arr-line, button:hover .arr-line { opacity: 1; }
+a:hover .arr-tip, button:hover .arr-tip { transform: translateX(3px); }
+
+/* --- buttons (designs restyle) --- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  text-decoration: none; cursor: pointer; border: 0; white-space: nowrap;
+  transition: background-color .15s ease, color .15s ease, box-shadow .15s ease, border-color .15s ease, opacity .15s ease;
+}
+.btn:disabled { opacity: .6; cursor: default; }
+
+/* ==========================================================================
+   Navigation: fixed bar; below 900px a persistent slim bar + full menu
+   ========================================================================== */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: var(--nav-h); }
+.nav-inner { height: 100%; display: flex; align-items: center; gap: 32px; }
+.brand { text-decoration: none; white-space: nowrap; }
+.nav-menu { display: flex; align-items: center; gap: 28px; margin-left: auto; }
+.nav-menu a { text-decoration: none; white-space: nowrap; }
+.nav-actions { display: flex; align-items: center; gap: 8px; }
+.nav-toggle {
+  display: none; width: 40px; height: 40px; margin-right: -8px;
+  background: none; border: 0; cursor: pointer;
+  flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+}
+.nav-toggle span { display: block; width: 18px; height: 1.5px; border-radius: 1px; background: currentColor; transition: transform .3s ease; }
+.nav.open .nav-toggle span:first-child { transform: translateY(3.25px) rotate(45deg); }
+.nav.open .nav-toggle span:last-child { transform: translateY(-3.25px) rotate(-45deg); }
+body.menu-open { overflow: hidden; }
+
+@media (max-width: 899px) {
+  .nav-inner { gap: 12px; }
+  .nav-actions { margin-left: auto; }
+  .nav-toggle { display: flex; }
+  /* .nav may carry backdrop-filter, which makes it the containing block for
+     fixed children, so size the overlay from the viewport explicitly */
+  .nav-menu {
+    position: fixed; top: var(--nav-h); left: 0; right: 0;
+    height: calc(100vh - var(--nav-h)); height: calc(100dvh - var(--nav-h));
+    margin: 0; padding: 16px var(--gutter) 40px;
+    flex-direction: column; align-items: stretch; gap: 0; overflow-y: auto;
+    opacity: 0; visibility: hidden; transform: translateY(-8px);
+    transition: opacity .25s ease, transform .25s ease, visibility .25s;
+  }
+  .nav.open .nav-menu { opacity: 1; visibility: visible; transform: none; }
+  .nav-menu a { display: block; padding: 16px 0; opacity: 0; transform: translateY(-6px); transition: opacity .3s ease, transform .3s ease; }
+  .nav.open .nav-menu a { opacity: 1; transform: none; }
+  .nav.open .nav-menu a:nth-child(1) { transition-delay: .04s; }
+  .nav.open .nav-menu a:nth-child(2) { transition-delay: .08s; }
+  .nav.open .nav-menu a:nth-child(3) { transition-delay: .12s; }
+  .nav.open .nav-menu a:nth-child(4) { transition-delay: .16s; }
+  .nav.open .nav-menu a:nth-child(5) { transition-delay: .2s; }
+  .nav.open .nav-menu a:nth-child(6) { transition-delay: .24s; }
+}
+
+/* ==========================================================================
+   Scroll reveal (replays both directions; site.js toggles .in-view)
+   ========================================================================== */
+@media (prefers-reduced-motion: no-preference) {
+  html.js .reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s cubic-bezier(.25,.6,.3,1), transform .7s cubic-bezier(.25,.6,.3,1); }
+  html.js .reveal.in-view { opacity: 1; transform: none; }
+  html.js.no-anim .reveal { transition: none !important; }
+}
+
+/* ==========================================================================
+   Layout primitives
+   ========================================================================== */
+.section { padding: var(--section-pad) 0; }
+.hero { position: relative; }
+.hero-links { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+.hero-links a { text-decoration: none; }
+
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.stats.stats-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.stat-value { white-space: nowrap; }
+
+.case-head, .case-cols, .finding, .reco, .callout, .case-links { position: relative; }
+.case-meta { display: flex; flex-wrap: wrap; gap: 4px 16px; }
+.case-stack span, .mini-stack span, .skill-subs span { white-space: nowrap; }
+.case-stack, .mini-stack { text-wrap: balance; }
+.case-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.finding { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 48px; align-items: center; }
+.case-links { display: flex; flex-wrap: wrap; gap: 12px; }
+.fig img { width: 100%; }
+.fig a { display: block; }
+
+.duo { display: grid; gap: 10px; margin-top: 24px; }
+.duo-row { display: grid; grid-template-columns: 64px 1fr 56px; align-items: center; gap: 12px; }
+.duo-bar { display: block; height: 12px; }
+.duo-bar i { display: block; height: 100%; width: var(--w); border-radius: 0 4px 4px 0; }
+.duo-bar i.member { background: var(--c-member); }
+.duo-bar i.casual { background: var(--c-casual); }
+.duo-val { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+/* ==========================================================================
+   Charts. Each design sets the --c-* tokens (palettes validated for CVD
+   separation and contrast against that design's surface).
+   Marks: 2px lines, 8px ringed dots, solid hairline grid, bars under 24px
+   with 4px rounded data ends; text always in text tokens, never series colour.
+   ========================================================================== */
+:root {
+  --c-member: #2a78d6; --c-casual: #eb6834; --c-drain: #e34948; --c-surplus: #2a78d6;
+  --c-grid: #e5e5e5; --c-axis: #666; --c-ink: #111; --c-surface: #fff;
+  --tip-bg: #fff; --tip-shadow: 0 0 0 1px rgba(0,0,0,.08), 0 8px 24px rgba(0,0,0,.12);
+}
+.chart { position: relative; }
+.chart-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px 20px; margin-bottom: 14px; }
+.chart-title { font-size: 14px; font-weight: 600; color: var(--c-ink); }
+.chart-legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 13px; color: var(--c-axis); }
+.chart-legend li { display: inline-flex; align-items: center; gap: 7px; }
+.key { display: inline-block; flex: none; }
+.lc .key { width: 14px; height: 2px; border-radius: 1px; }
+.dv .key { width: 10px; height: 10px; border-radius: 2px; }
+.key.member { background: var(--c-member); } .key.casual { background: var(--c-casual); }
+.key.drain { background: var(--c-drain); } .key.surplus { background: var(--c-surplus); }
+
+.chart-tip { position: absolute; z-index: 4; padding: 10px 12px; border-radius: 8px; background: var(--tip-bg); box-shadow: var(--tip-shadow);
+  font-size: 13px; line-height: 1.4; color: var(--c-ink); pointer-events: none; opacity: 0; transition: opacity .12s ease; white-space: nowrap; }
+.chart-tip strong { font-weight: 600; font-variant-numeric: tabular-nums; }
+
+/* --- line chart --- */
+.lc { --lc-h: 260px; --lc-yw: 46px; --lc-top: 26px; }
+.lc-body { display: grid; grid-template-columns: var(--lc-yw) minmax(0, 1fr); }
+.lc-y, .lc-plot { position: relative; height: var(--lc-h); }
+.lc-in { position: absolute; inset: var(--lc-top) 0 0 0; }
+.lc-y span { position: absolute; right: 10px; transform: translateY(-50%); font-size: 11px; color: var(--c-axis); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.lc-plot { touch-action: pan-y; cursor: crosshair; border-radius: 4px; }
+.lc-svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.lc-grid line { stroke: var(--c-grid); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.lc-line { fill: none; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.lc-line.member { stroke: var(--c-member); } .lc-line.casual { stroke: var(--c-casual); }
+.lc-peak { position: absolute; width: 8px; height: 8px; transform: translate(-50%, -50%); }
+.lc-peak i { display: block; width: 8px; height: 8px; border-radius: 50%; box-shadow: 0 0 0 2px var(--c-surface); }
+.lc-peak.member i { background: var(--c-member); } .lc-peak.casual i { background: var(--c-casual); }
+.lc-peak b { position: absolute; left: 50%; bottom: 12px; transform: translateX(-50%); font-size: 12px; font-weight: 600; color: var(--c-ink); white-space: nowrap; transition: opacity .12s ease; }
+.lc-cross { position: absolute; top: 0; bottom: 0; width: 1px; margin-left: -.5px; background: var(--c-axis); opacity: 0; pointer-events: none; }
+.lc-hdot { position: absolute; width: 10px; height: 10px; border-radius: 50%; transform: translate(-50%, -50%); box-shadow: 0 0 0 2px var(--c-surface); opacity: 0; pointer-events: none; }
+.lc-hdot.member { background: var(--c-member); } .lc-hdot.casual { background: var(--c-casual); }
+.lc-tip { top: 0; left: 0; min-width: 150px; }
+.lc.is-active .lc-cross, .lc.is-active .lc-hdot, .lc.is-active .lc-tip { opacity: 1; }
+.lc.is-active .lc-peak b { opacity: .2; }
+.tip-head { font-size: 12px; color: var(--c-axis); margin-bottom: 4px; }
+.tip-row { display: flex; align-items: center; gap: 8px; }
+.tip-row strong { min-width: 44px; }
+.tip-row span { color: var(--c-axis); }
+.tip-key { display: inline-block; width: 12px; height: 2px; border-radius: 1px; flex: none; }
+.tip-key.member { background: var(--c-member); } .tip-key.casual { background: var(--c-casual); }
+.lc-x { position: relative; height: 18px; margin: 8px 0 0 var(--lc-yw); }
+.lc-x span { position: absolute; top: 0; transform: translateX(-50%); font-size: 11px; color: var(--c-axis); white-space: nowrap; }
+.lc-x span:first-child { transform: none; }
+
+/* --- diverging bars --- */
+.dv-rows { display: grid; gap: 10px; }
+.dv-row { position: relative; display: grid; grid-template-columns: minmax(140px, 34%) minmax(0, 1fr); align-items: center; gap: 16px; border-radius: 4px; outline-offset: 4px; }
+.dv-name { font-size: 13px; line-height: 1.3; color: var(--c-ink); text-wrap: balance; }
+.dv-track { position: relative; height: 20px; }
+.dv-track::before { content: ""; position: absolute; left: 50%; top: -5px; bottom: -5px; width: 1px; background: var(--c-axis); opacity: .45; }
+.dv-bar { position: absolute; top: 2px; height: 16px; width: var(--w); transition: filter .12s ease; }
+.dv-bar.drain { left: 50%; background: var(--c-drain); border-radius: 0 4px 4px 0; }
+.dv-bar.surplus { right: 50%; background: var(--c-surplus); border-radius: 4px 0 0 4px; }
+.dv-val { position: absolute; top: 50%; transform: translateY(-50%); font-size: 12px; font-weight: 600; color: var(--c-ink); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.dv-bar.drain .dv-val { left: calc(100% + 6px); }
+.dv-bar.surplus .dv-val { right: calc(100% + 6px); }
+.dv-row:hover .dv-bar, .dv-row:focus .dv-bar { filter: brightness(1.12) saturate(1.1); }
+.dv-tip { right: 0; bottom: calc(100% + 6px); display: grid; gap: 2px; }
+.dv-tip span { color: var(--c-axis); }
+.dv-tip .tip-name { color: var(--c-ink); }
+.dv-row:hover .dv-tip, .dv-row:focus .dv-tip { opacity: 1; }
+.dv-axis { display: grid; grid-template-columns: minmax(140px, 34%) minmax(0, 1fr); gap: 16px; margin-top: 12px; }
+.dv-ticks { position: relative; height: 16px; }
+.dv-ticks span { position: absolute; transform: translateX(-50%); font-size: 11px; color: var(--c-axis); font-variant-numeric: tabular-nums; }
+
+/* --- table view (every chart has one) --- */
+.chart-data { margin-top: 12px; font-size: 13px; max-width: 100%; overflow-x: auto; }
+.chart-data summary { cursor: pointer; color: var(--c-axis); width: fit-content; }
+.chart-data summary:hover { color: var(--c-ink); }
+.chart-data table { width: 100%; margin-top: 10px; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.chart-data th, .chart-data td { padding: 6px 8px; text-align: right; border-bottom: 1px solid var(--c-grid); color: var(--c-ink); font-weight: 400; }
+.chart-data th:first-child { text-align: left; }
+.chart-data thead th { color: var(--c-axis); font-weight: 600; }
+
+/* a wide chart (the station bars) sits under its text instead of beside it */
+.finding.finding-wide { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+.finding-wide .finding-text { max-width: 680px; }
+
+@media (max-width: 599px) {
+  .lc { --lc-h: 220px; --lc-yw: 40px; }
+  .lc-x span.minor { display: none; }
+  /* phones: one line per station, the name on the far side of zero from its bar */
+  .dv-row, .dv-axis { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .dv-axis > span:first-child { display: none; }
+  .dv-name, .dv-track { grid-area: 1 / 1; }
+  .dv-track { height: auto; min-height: 20px; align-self: stretch; }
+  .dv-bar { top: 50%; transform: translateY(-50%); }
+  .dv-name { position: relative; z-index: 1; width: 50%; font-size: 12px; line-height: 1.25; }
+  .dv-row.drain .dv-name { justify-self: start; text-align: right; padding-right: 10px; }
+  .dv-row.surplus .dv-name { justify-self: end; text-align: left; padding-left: 10px; }
+  .dv-tip { right: auto; left: 0; }
+}
+
+.mini-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.mini { display: flex; flex-direction: column; overflow: hidden; }
+/* same frame for every diagram so the card bodies line up side by side */
+.mini-fig img { aspect-ratio: 16 / 10; object-fit: contain; }
+.mini-body { display: flex; flex-direction: column; flex: 1; }
+.mini-body .text-link { margin-top: auto; }
+.chips, .pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.text-link { text-decoration: none; }
+
+.skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+.edu-item { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; }
+.edu-dates { white-space: nowrap; }
+
+.contact-sub span { display: block; text-wrap: balance; }
+.br-mobile { display: none; }
+.contact-form { display: grid; gap: 18px; }
+.field { display: grid; gap: 8px; }
+.field input, .field textarea { width: 100%; outline: none; }
+.field textarea { height: 190px; resize: none; overflow-y: auto; }
+.form-foot { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.form-status:empty { display: none; }
+
+.footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+.footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+.footer-links a { text-decoration: none; }
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 899px) {
+  :root { --section-pad: 88px; }
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stats.stats-3 { grid-template-columns: 1fr; }
+  .case-cols, .finding, .mini-grid, .skills-grid { grid-template-columns: 1fr; }
+  .finding { gap: 28px; }
+}
+@media (max-width: 599px) {
+  :root { --gutter: 20px; --section-pad: 72px; }
+  .edu-item { flex-direction: column; gap: 6px; }
+  .br-mobile { display: inline; }
+  .hero-actions .btn { flex: 1 1 0; }
+}
