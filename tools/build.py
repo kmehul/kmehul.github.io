@@ -463,7 +463,7 @@ SKILLS = f'''<section class="section skills" id="skills">
     {section_head("Skills", "The toolkit.", "What I use, and what I use it for.")}
     <div class="skills-grid">
       {skill("Analytics &amp; Visualization", ["Tableau", "Power BI"], ["Business intelligence", "Dashboards", "KPIs", "Drill-downs", "Ad-hoc analysis", "Data storytelling"])}
-      {skill("Languages &amp; Querying", ["SQL", "Python", "pandas", "matplotlib", "seaborn"], ["Data manipulation", "Data cleaning", "Querying", "Exploratory data analysis"])}
+      {skill("Languages", ["SQL", "Python", "pandas", "matplotlib", "seaborn"], ["Data manipulation", "Data cleaning", "Querying", "Exploratory data analysis"])}
       {skill("Data Preparation", ["Alteryx", "Talend"], ["ETL", "Data profiling", "Data transformation", "Data integration", "Data quality"])}
       {skill("Databases", ["PostgreSQL", "SQL Server", "Azure SQL", "MySQL", "E/R Studio"], ["Relational databases", "Dimensional modeling", "Data warehousing", "Data modeling"])}
     </div>
