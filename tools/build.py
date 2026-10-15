@@ -311,7 +311,7 @@ ABOUT = '''<section class="section about" id="about">
 
 EXPERIENCE = f'''<section class="section experience" id="experience">
   <div class="wrap">
-    {section_head("Experience", "Grants intelligence, end to end.", "Eight months building, auditing, and enriching a dataset of 8,000 foundations for a grants team.")}
+    {section_head("Experience", "Grants intelligence, end to end.", "Building, auditing, and enriching a dataset of 8,000 foundations for a grants team.")}
     <article class="xp card reveal">
       <div class="xp-head">
         <div>
@@ -327,10 +327,10 @@ EXPERIENCE = f'''<section class="section experience" id="experience">
         {stat("80", "of assigned foundations with packages ready before deadlines", 80, prefix="~", suffix="%")}
       </dl>
       <ul class="xp-list">
-        <li>Extracted and structured IRS 990 and foundation website data for about 2,000 of the team's 8,000 organization records.</li>
-        <li>Audited the full dataset for structural integrity and formatting consistency, resolving field-level inconsistencies across every record.</li>
+        <li>Extracted and structured IRS 990 and foundation website data in Google Sheets for about 2,000 of the team's 8,000 organization records.</li>
+        <li>Audited the full dataset in Google Sheets for structural integrity and formatting consistency, resolving field-level inconsistencies across every record.</li>
         <li>Ran a structured gap analysis with a resolution log across multiple review cycles, focusing follow-up on recoverable gaps.</li>
-        <li>Built a deadline-driven classification framework that replaced an unstructured process with a team-wide workflow.</li>
+        <li>Built a deadline-driven classification framework in Monday.com that replaced an unstructured process with a team-wide workflow.</li>
       </ul>
     </article>
   </div>
@@ -399,7 +399,7 @@ def case(p):
 
       <aside class="callout">
         <p class="callout-label">How the numbers were checked</p>
-        <p>I used Claude as an independent code reviewer to reproduce the results. It surfaced a NULL-handling bug and a sign error affecting 44 of 81 stations, both fixed before publishing.</p>
+        <p>I validated the PostgreSQL views by independent reproduction, with Claude as a code reviewer, and fixed a NULL-handling bug and a sign error affecting 44 of 81 stations before publishing.</p>
       </aside>
 
       <p class="case-links">
