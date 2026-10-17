@@ -120,7 +120,7 @@
         </section>
         <section class="case-block">
           <h4>The approach</h4>
-          <p>Cleaned 95,350 raw trips in pandas, removing 355 null records and 306 cross-system rides to leave 94,689. Built reusable PostgreSQL views for each station's daily bike flow and imbalance, kept low-volume noise out of the rankings with a reliability filter (more than 25 daily rides on at least 6 of 31 days), and published a Tableau map of every station.</p>
+          <p>Cleaned 95,350 raw trips in pandas, removing 355 null records and 306 cross-system rides to leave 94,689. Built reusable PostgreSQL views for each station's daily bike flow and imbalance, and kept low-volume noise out of the rankings with a two-stage reliability filter (more than 25 daily rides on at least 6 of 31 days) that narrowed 108 stations to 84, then 81. Published a Tableau map of every station.</p>
         </section>
       </div>
 
@@ -182,7 +182,7 @@
 
       <aside class="callout">
         <p class="callout-label">How the numbers were checked</p>
-        <p>I validated the PostgreSQL views by independent reproduction, with Claude as a code reviewer, and fixed a NULL-handling bug and a sign error affecting 44 of 81 stations before publishing.</p>
+        <p>I validated the PostgreSQL views by independent reproduction, with Claude as a code reviewer, and fixed a sign error affecting 44 of the 81 ranked stations and a NULL-handling bug before publishing.</p>
       </aside>
 
       <p class="case-links">
