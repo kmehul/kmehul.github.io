@@ -311,7 +311,7 @@ ABOUT = '''<section class="section about" id="about">
 
 EXPERIENCE = f'''<section class="section experience" id="experience">
   <div class="wrap">
-    {section_head("Experience", "Grants intelligence, end to end.", "Building, auditing, and enriching a dataset of 8,000 foundations for a grants team.")}
+    {section_head("Experience", "Grants intelligence, end to end.", "Building, auditing, and enriching a grants team's dataset of 8,000 foundations.")}
     <article class="xp card reveal">
       <div class="xp-head">
         <div>
