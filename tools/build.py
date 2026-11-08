@@ -327,10 +327,10 @@ EXPERIENCE = f'''<section class="section experience" id="experience">
         {stat("80", "of assigned foundations with packages ready before deadlines", 80, prefix="~", suffix="%")}
       </dl>
       <ul class="xp-list">
-        <li>Extracted and structured IRS 990 and foundation website data in Google Sheets for about 2,000 of the team's 8,000 organization records.</li>
+        <li>Extracted IRS 990 and foundation website data in Google Sheets for about 2,000 of the team's 8,000 organization records.</li>
         <li>Audited the team's full 8,000-record dataset in Google Sheets for structural integrity and formatting consistency, resolving field-level inconsistencies across every record.</li>
         <li>Ran a structured gap analysis with a resolution log across multiple review cycles, focusing follow-up on recoverable gaps.</li>
-        <li>Built a deadline-driven classification framework in Monday.com that replaced an unstructured process with a team-wide workflow.</li>
+        <li>Segmented foundations by application deadline into Monday.com boards alongside the grants team, enabling prioritization by application window.</li>
       </ul>
     </article>
   </div>
@@ -398,8 +398,8 @@ def case(p):
       </section>
 
       <aside class="callout">
-        <p class="callout-label">How the numbers were checked</p>
-        <p>I validated the PostgreSQL views by independent reproduction, with Claude as a code reviewer, and fixed a sign error affecting 44 of 81 ranked stations and a NULL-handling bug before publishing.</p>
+        <p class="callout-label">One source of truth</p>
+        <p>The station flow, imbalance, and coordinate views are defined once in PostgreSQL and shared by the SQL analysis and the Tableau map export, eliminating discrepancies between the two.</p>
       </aside>
 
       <p class="case-links">
@@ -427,7 +427,7 @@ def mini(p, key, dates, title, items, desc, chips, img, w, h, alt, caption):
 def projects(p):
     imdb = mini(p, "imdb", "Dec 2023 - Apr 2024", "IMDB Movie Data Analysis",
                 ["Alteryx", "Talend", "Tableau", "Azure SQL", "E/R Studio"],
-                "Built Talend jobs to load about 1 million source records from 17 heterogeneous sources into a 12-table dimensional model on Azure SQL, expanding many-to-many relationships into a warehouse of about 8.9 million records. Designed the model in E/R Studio, profiled and validated all source data in Alteryx, and built Tableau dashboards covering genre-level rating and revenue patterns, multi-year output and rating trends, seasonal release performance, and multi-region release footprint.",
+                "Built Talend jobs to load about 1 million source records from 17 heterogeneous sources into a 12-table dimensional model on Azure SQL, expanding many-to-many relationships into a warehouse of about 8.9 million records. Designed the model in E/R Studio, profiled and validated all source data in Alteryx, and built Tableau dashboards covering genre ratings and revenue, multi-year output and rating trends, seasonal release performance, and regional release footprint.",
                 ["~1M source records", "17 sources", "~8.9M-record warehouse", "12 tables"],
                 "imdb-model.png", 1219, 762,
                 "E/R Studio logical model of the IMDB warehouse with dimension, fact and bridge tables.",
